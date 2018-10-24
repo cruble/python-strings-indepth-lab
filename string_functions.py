@@ -42,16 +42,14 @@ def validate_email_format(email):
     else: 
         status = 'No'
     return status     
-    # should make sure there are no special characters (i.e. *,~,#,$,%,&,(,),`,",',:,;,/,>,<)
-    # make sure the email contains an @ symbol and a .com
-    # return True if format passes tests, return False otherwise
-
 
 def anonymize_credit_card_number(credit_card_number):
-    # should replace all characters except the last 4 with 'X'
-    # return the anonymized credit card number as a string
-    # the credit card may have characters that are not numbers (i.e. spaces and dashes, which we would want to keep)
-    # i.e. 1234-5678-90-1234 -> XXXX-XXXX-XX-1234
-    pass
-
-print(say_hello("chad"))
+    end_string = credit_card_number[-4:]
+    start_string = []
+    anonymous = []
+    for char in credit_card_number[0:-4]: 
+        if char == "-" or char == " ":
+            anonymous.append(char)
+        else: 
+            anonymous.append("X")
+    return ''.join(anonymous) + end_string        
